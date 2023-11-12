@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use function Termwind\render;
-use \App\Http\Controllers\accountController;
+use \App\Http\Controllers\AccountController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +20,7 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/list', [accountController::class, 'index']);
+Route::get('/list', [AccountController::class, 'index']);
 
 
 // Route::get('/live', [\app\Livewire\HelloWorld, render()]);
