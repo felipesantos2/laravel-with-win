@@ -10,7 +10,7 @@ class accountController extends Controller
     public function index()
     {
         // get
-        return view('list-account');
+        return view('pages.list-account');
     }
 
     public function create()

@@ -21,4 +21,6 @@ Route::get('/', function () {
 });
 
 Route::get('/list', [accountController::class, 'index']);
+
+
 // Route::get('/live', [\app\Livewire\HelloWorld, render()]);
