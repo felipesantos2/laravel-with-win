@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-use function Termwind\render;
 use \App\Http\Controllers\AccountController;
 
 /*
@@ -20,7 +18,5 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/list', [AccountController::class, 'index']);
+Route::get('/list', [AccountController::class, 'index'] )->name('list.index');
 
-
-// Route::get('/live', [\app\Livewire\HelloWorld, render()]);
