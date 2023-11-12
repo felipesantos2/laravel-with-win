@@ -8,5 +8,9 @@
     </head>
     <body>
 
+        @livewire('hello-world')
+        
+        <livewire:hello-world />
+
     </body>
 </html>
