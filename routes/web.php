@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use function Termwind\render;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,5 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+
+// Route::get('/live', [\app\Livewire\HelloWorld, render()]);
