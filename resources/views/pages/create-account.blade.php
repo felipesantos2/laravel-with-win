@@ -4,8 +4,7 @@
 
 <div>
     Create
-    
-</div>
 
+</div>
 
 @endsection

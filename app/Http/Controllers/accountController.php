@@ -1,13 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
-class accountController extends Controller
+
+class AccountController extends Controller
 {
     //
-    public function index()
+    public function index(): view
     {
         // get
         return view('pages.list-account');

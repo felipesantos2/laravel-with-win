@@ -6,8 +6,12 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
         <title>{{'Forms | Laravel With Win'}}</title>
+
+           @livewireStyles
     </head>
     <body>
         @yield('content')
+
+        @livewireScripts
     </body>
 </html>

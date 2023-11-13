@@ -7,6 +7,8 @@
         <title>{{'Forms | Laravel With Win'}}</title>
     </head>
     <body>
-
+            <h1 class="text-red-500">
+                index
+            </h1>
     </body>
 </html>

@@ -18,5 +18,12 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/list', [AccountController::class, 'index'] )->name('list.index');
+Route::get('/account', [AccountController::class, 'index'])->name('account.index');
+// Formulário
+Route::get('/account/create ', [AccountController::class, 'create'])->name('account.create');
+// Submeter dados do formulário
+Route::post('/account ', [AccountController::class, 'create'])->name('account.store');
+// Listando uma conta
+Route::get('/account/{} ', [AccountController::class, 'create'])->name('account.show');
+
 
