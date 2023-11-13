@@ -7,8 +7,11 @@
 
         <title>{{'Forms | Laravel With Win'}}</title>
 
-           @livewireStyles
+        @livewireStyles
+        
+        @vite('resources/css/app.css')
     </head>
+
     <body>
         @yield('content')
 
