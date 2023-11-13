@@ -20,10 +20,13 @@ class AccountController extends Controller
 
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        // post
-        // pe
+        $nome = $request->nome;
+
+        dd($nome);
+
+        return redirect('/account');
     }
 
     public function show()

@@ -2,7 +2,8 @@
 
 @section('content')
 
-<a href="/account/create">Listar Contas</a>
+@include('layouts.navigation')
+
 <div>
     <div>
         <div class="bg-yellow-500 p-2">
