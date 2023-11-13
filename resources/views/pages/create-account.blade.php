@@ -1,13 +1,14 @@
 @extends('layouts.default')
 
 @section('content')
-@php
+{{-- @php
     print_r($_SERVER)
-@endphp
+@endphp --}}
+<a href="{{ $_SERVER['APP_URL'] }}/account">Listar Contas</a>
 <div>
 
     <div class="container p-5">
-        <form action="{{$_SERVER['APP_URL']}}/" method="post">
+        <form action="{{ $_SERVER['APP_URL'] }}/account" method="post">
             <div class="max-w-full w-90 h-90 border border-rose-600 p-5">
 
                 <div>
