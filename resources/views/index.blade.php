@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.default')
 
-        <title>{{'Forms | Laravel With Win'}}</title>
-    </head>
-    <body>
-            <h1 class="text-red-500">
-                index
-            </h1>
-    </body>
-</html>
+@section('content')
+
+<div>
+    <h1 class="text-2xl text-red-500">
+        Contas
+    </h1>
+</div>
+
+@endsection

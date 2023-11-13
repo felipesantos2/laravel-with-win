@@ -8,20 +8,22 @@ use Illuminate\View\View;
 class AccountController extends Controller
 {
     //
-    public function index(): view
+    public function index()
     {
         // get
-        return view('pages.list-account');
+        // return view('pages.list-account');
     }
 
     public function create()
     {
         // get
+
     }
 
     public function store()
     {
         // post
+        // pe
     }
 
     public function show()

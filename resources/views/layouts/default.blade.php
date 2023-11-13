@@ -7,13 +7,17 @@
 
         <title>{{'Forms | Laravel With Win'}}</title>
 
-        @livewireStyles
-        
         @vite('resources/css/app.css')
+
+        @livewireStyles
+
     </head>
 
     <body>
-        @yield('content')
+
+        <div class="pages">
+            @yield('content')
+        </div>
 
         @livewireScripts
     </body>

@@ -18,12 +18,13 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/account', [AccountController::class, 'index'])->name('account.index');
+Route::get('/account', function() { return view('pages.list-account'); })->name('account.index');
 // Formulário
-Route::get('/account/create ', [AccountController::class, 'create'])->name('account.create');
+Route::get('/account/create ', function() { return view('pages.create-account'); })->name('account.create');
+
 // Submeter dados do formulário
-Route::post('/account ', [AccountController::class, 'create'])->name('account.store');
+Route::post('/account ', [AccountController::class, 'store'])->name('account.store');
 // Listando uma conta
-Route::get('/account/{} ', [AccountController::class, 'create'])->name('account.show');
+Route::get('/account/{id} ', [AccountController::class, 'create'])->name('account.show');
 
 
