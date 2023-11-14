@@ -16,7 +16,7 @@ use \App\Http\Controllers\AccountController;
 
 Route::view('/', 'index');
 
-Route::prefix('felipe')->controller(AccountController::class)->group(function () {
+Route::controller(AccountController::class)->group(function () {
     Route::get('/account', 'index')->name('account.index');
     Route::get('/account/create', 'create')->name('account.create');
     Route::post('/account/submit', 'store')->name('account.store');
