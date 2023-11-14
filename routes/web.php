@@ -14,17 +14,13 @@ use \App\Http\Controllers\AccountController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::view('/', 'index');
 
-// Formulário de criação
-Route::get('/account/create', function() { return view('pages.create-account'); })->name('account.create');
-// Listar
-Route::get('/account', function() { return view('pages.list-account'); })->name('account.index');
-// Submeter dados do formulário
-Route::post('/account/submit', [AccountController::class, 'store'])->name('account.store');
-// Listando uma conta
-Route::get('/account/{id} ', [AccountController::class, 'create'])->name('account.show');
+Route::prefix('felipe')->controller(AccountController::class)->group(function () {
+    Route::get('/account', 'index')->name('account.index');
+    Route::get('/account/create', 'create')->name('account.create');
+    Route::post('/account/submit', 'store')->name('account.store');
+    Route::post('/account/{id}', 'show')->name('account.show');
+});
 
 

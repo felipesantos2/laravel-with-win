@@ -1,50 +1,61 @@
 <?php
 
 namespace App\Http\Controllers;
+
+
+use App\Models\Conta;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Support\Str;
+
 
 
 class AccountController extends Controller
 {
-    //
-    public function index()
+    public function index(): View
     {
-        // get
-        // return view('pages.list-account');
+        return view('contas.list-account', [
+            'contas' => Conta::all()
+        ]);
     }
 
-    public function create()
-    {
-        // get
 
+    public function create(): View
+    {
+        return view('contas.create-account');
     }
+
 
     public function store(Request $request)
     {
-        $nome = $request->nome;
+        $conta = new Conta();
 
-        dd($nome);
+        $conta->conta = Str::ucfirst($request->accountName);
+        $conta->valor = $request->accountValue;
+        $conta->estabelecimento = Str::upper($request->accountEstablishment);
+        $conta->vencimento = $request->accountPayDay;
 
-        return redirect('/account');
+        $conta->save();
+
+        return redirect()->route('account.create')->with('success', 'Conta adicionada com sucesso');
     }
 
-    public function show()
+    public function show($id)
     {
         // get
     }
 
-    public function edit()
+    public function edit($id)
     {
         // get
     }
 
-    public function update()
+    public function update($id)
     {
         // put/patch
     }
 
-    public function destroy()
+    public function destroy($id)
     {
         // delete
     }
