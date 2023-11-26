@@ -48,7 +48,7 @@ class DebtController extends Controller
 
     //----------------------------------------------------
     //----------------------------------------------------
-    public function edit( Debt $id ): View
+    public function edit(Debt $id): View
     {
         // edit one item
         return view('pages.contas.edit');
@@ -56,10 +56,10 @@ class DebtController extends Controller
 
     //----------------------------------------------------
     //----------------------------------------------------
-    public function update( Debt $id, Request $request)
+    public function update(Debt $id, Request $request)
     {
         // save edition item and redirect
-        if(
+        if (
             empty($request->conta) ||
             empty($request->valor) ||
             empty($request->estabelecimento)
@@ -70,8 +70,8 @@ class DebtController extends Controller
         }
 
         $affectedRows = DB::table('contas')
-                        ->where('id', $id)
-                        ->update(['conta' => $request->conta]);
+            ->where('id', $id)
+            ->update(['conta' => $request->conta]);
 
         echo $affectedRows;
 
