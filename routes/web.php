@@ -31,13 +31,6 @@ Route::prefix('contas')->group(function () {
 
     Route::post('/save', [DebtController::class, 'update'])->name('contas.update');
 
-
-    // Route::match(
-    //     ['get', 'post'],
-    //     '/edit/{id?}',
-    //     [DebtController::class, 'edit'],
-    // )->name('contas.edit');
-
 });
 
 

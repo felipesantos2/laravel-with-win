@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
+use App\Models\Debt;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Route;
+
 
 class DebtController extends Controller
 {
@@ -13,7 +14,12 @@ class DebtController extends Controller
     public function index(): View
     {
         // all items
-        return view('pages.contas.index');
+
+        $contas = new Debt();
+
+        return view('pages.contas.index', [
+            'rows' => $contas->all();
+        ]);
     }
 
     //----------------------------------------------------
