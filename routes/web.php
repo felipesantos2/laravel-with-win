@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\AccountController;
+use \IlLuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,12 +16,17 @@ use \App\Http\Controllers\AccountController;
 */
 
 Route::view('/', 'welcome');
+Route::view('/welcome', 'welcome');
 
-// Route::controller(AccountController::class)->group(function () {
-//     Route::get('/account', 'index')->name('account.index');
-//     Route::get('/account/create', 'create')->name('account.create');
-//     Route::post('/account/submit', 'store')->name('account.store');
-//     Route::post('/account/{id}', 'show')->name('account.show');
-// });
+
+Route::prefix('contas')->controller(AccountController::class)->group(function () {
+    Route::match(
+        ['get', 'post'],
+        '/edit/{id?}',
+        function ( ?string $id = null ) {
+            
+        }
+    )->name('contas.edit');
+});
 
 
