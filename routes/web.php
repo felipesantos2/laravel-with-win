@@ -15,15 +15,29 @@ use \IlLuminate\Http\Request;
 |
 */
 
-Route::view('/', 'welcome');
+Route::view('/', 'index');
+
 Route::view('/welcome', 'welcome');
 
-Route::prefix('contas')->controller(AccountController::class)->group(function () {
-    Route::match(
-        ['get', 'post'],
-        '/edit/{id?}',
-        [DebtController::class, 'index'],
-    )->name('contas.edit');
+Route::prefix('contas')->group(function () {
+
+    Route::get('/all', [DebtController::class, 'index'])->name('contas.index');
+
+    Route::view('/create','pages.contas.create')->name('contas.create');
+
+    Route::get('/show/{?id}', [DebtController::class, 'show'])->name('contas.show');
+
+    Route::view('/edit{id?}','pages.contas.edit')->name('contas.edit');
+
+    Route::post('/save', [DebtController::class, 'update'])->name('contas.update');
+
+
+    // Route::match(
+    //     ['get', 'post'],
+    //     '/edit/{id?}',
+    //     [DebtController::class, 'edit'],
+    // )->name('contas.edit');
+
 });
 
 

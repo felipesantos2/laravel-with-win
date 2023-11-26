@@ -5,22 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
-use Illuminate\View\View;
+
 
 class Controller extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
 
-    //----------------------------------------------------
-    //----------------------------------------------------
-    public function index(): View
-    {
-        return view('pages.contas.edit', [
-            'nome' => 'Felipe',
-            'idade' => '20',
-        ]);
-    }
-
-    //----------------------------------------------------
-    //----------------------------------------------------
 }

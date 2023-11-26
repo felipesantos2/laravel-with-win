@@ -2,7 +2,7 @@
 
 @section('content')
 
-@include('contas.index')
+Hello
 
 @endsection
 
