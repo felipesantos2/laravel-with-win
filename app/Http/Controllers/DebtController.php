@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\DB;
 use App\Models\Debt;
 use Illuminate\View\View;
@@ -14,20 +15,20 @@ class DebtController extends Controller
     public function index(): View
     {
         // all items
-
-        $contas = new Debt();
-
         return view('pages.contas.index', [
-            'rows' => $contas->all();
+            'rows' => Debt::all()
         ]);
     }
 
     //----------------------------------------------------
     //----------------------------------------------------
-    public function show(): View
+    public function show(Debt $id): View
     {
         // one item
-        return view('pages.contas.show');
+        return view('pages.contas.show', [
+            'id'   => $id->id,
+            'row' => Debt::find($id),
+        ]);
     }
 
     //----------------------------------------------------
@@ -47,7 +48,7 @@ class DebtController extends Controller
 
     //----------------------------------------------------
     //----------------------------------------------------
-    public function edit(): View
+    public function edit( Debt $id ): View
     {
         // edit one item
         return view('pages.contas.edit');
@@ -55,10 +56,28 @@ class DebtController extends Controller
 
     //----------------------------------------------------
     //----------------------------------------------------
-    public function update()
+    public function update( Debt $id, Request $request)
     {
-        // save edit for item and redirect
-        return to_route('contas.index');
+        // save edition item and redirect
+        if(
+            empty($request->conta) ||
+            empty($request->valor) ||
+            empty($request->estabelecimento)
+        ) {
+            return to_route('contas.edit', [
+                'message' => 'Preencha todos os campos por favor!',
+            ]);
+        }
+
+        $affectedRows = DB::table('contas')
+                        ->where('id', $id)
+                        ->update(['conta' => $request->conta]);
+
+        echo $affectedRows;
+
+        // return to_route('contas.index', [
+        //     'message' => 'Atualizado Com Sucesso'
+        // ]);
     }
 
     //----------------------------------------------------

@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('contas', function (Blueprint $table) {
             $table->id();
-            $table->string('conta');
-            $table->string('valor');
-            $table->string('data_compra');
-            $table->string('vencimento');
-            $table->string('estabelecimento');
+            $table->string('conta')->default(null);
+            $table->string('valor')->default(null);;
+            $table->dateTime('data_compra')->default(null);;
+            $table->dateTime('data_vencimento')->default(null);;
+            $table->string('estabelecimento')->default(null);;
             $table->timestamps();
             $table->softDeletes();
         });

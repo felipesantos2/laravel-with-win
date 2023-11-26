@@ -25,11 +25,11 @@ Route::prefix('contas')->group(function () {
 
     Route::view('/create','pages.contas.create')->name('contas.create');
 
-    Route::get('/show/{?id}', [DebtController::class, 'show'])->name('contas.show');
+    Route::get('/show/{id?}', [DebtController::class, 'show'])->name('contas.show');
 
-    Route::view('/edit{id?}','pages.contas.edit')->name('contas.edit');
+    Route::get('/edit/{id?}', [DebtController::class, 'edit'])->name('contas.edit');
 
-    Route::post('/save', [DebtController::class, 'update'])->name('contas.update');
+    Route::post('/update', [DebtController::class, 'update'])->name('contas.update');
 
 });
 
