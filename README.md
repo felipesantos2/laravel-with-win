@@ -25,7 +25,7 @@
     php artisan make:livewire helloworld
 ```
 
-```
+```txt
 
 formas de criar rotas
 
@@ -48,3 +48,14 @@ Route::controller(AccountController::class)->group(function () {
     ** npm run build **
     ** composer install **
  -->
+```txt
+Criação de front-ends modernos e dinâmicos com o PHP levou a criação do Livewire e do Alpine.js
+TALL STACK => 
+[
+    Tailwind,
+    Alpine,
+    Laravel,
+    Livewire,
+]
+```
+

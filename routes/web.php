@@ -14,13 +14,13 @@ use \App\Http\Controllers\AccountController;
 |
 */
 
-Route::view('/', 'index');
+Route::view('/', 'welcome');
 
-Route::controller(AccountController::class)->group(function () {
-    Route::get('/account', 'index')->name('account.index');
-    Route::get('/account/create', 'create')->name('account.create');
-    Route::post('/account/submit', 'store')->name('account.store');
-    Route::post('/account/{id}', 'show')->name('account.show');
-});
+// Route::controller(AccountController::class)->group(function () {
+//     Route::get('/account', 'index')->name('account.index');
+//     Route::get('/account/create', 'create')->name('account.create');
+//     Route::post('/account/submit', 'store')->name('account.store');
+//     Route::post('/account/{id}', 'show')->name('account.show');
+// });
 
 
