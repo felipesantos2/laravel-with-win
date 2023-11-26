@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use \App\Http\Controllers\AccountController;
+use \App\Http\Controllers\DebtController;
 use \IlLuminate\Http\Request;
 
 /*
@@ -18,14 +18,11 @@ use \IlLuminate\Http\Request;
 Route::view('/', 'welcome');
 Route::view('/welcome', 'welcome');
 
-
 Route::prefix('contas')->controller(AccountController::class)->group(function () {
     Route::match(
         ['get', 'post'],
         '/edit/{id?}',
-        function ( ?string $id = null ) {
-            
-        }
+        [DebtController::class, 'index'],
     )->name('contas.edit');
 });
 
