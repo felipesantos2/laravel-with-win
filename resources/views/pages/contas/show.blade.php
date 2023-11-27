@@ -2,6 +2,8 @@
 
 @section('content')
 
+@include('components.navigation')
+
 <div>
 
     <h1 class="text-3xl">

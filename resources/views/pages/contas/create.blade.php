@@ -2,6 +2,8 @@
 
 @section('content')
 
+@include('components.navigation')
+
 <div>
     {{ "CREATE" }}
 </div>

@@ -16,7 +16,9 @@
     <body>
 
         <div class="pages max-w-full w-2/4 mx-auto">
-            @yield('content')
+            <div>
+                @yield('content')
+            </div>
         </div>
 
         @livewireScripts

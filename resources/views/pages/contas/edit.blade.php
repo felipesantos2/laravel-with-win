@@ -2,8 +2,10 @@
 
 @section('content')
 
+@include('components.navigation')
+
 <div>
-    
+
     {{ "VIEW DE EDIÇÃO" }}
 
     <div>

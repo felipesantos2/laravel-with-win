@@ -2,9 +2,9 @@
 
 @section('content')
 
-<div>
+@include('components.navigation')
 
-    {{ "CONTAS INDEX" }}
+<div>
 
     <h1 class="text-3xl">
         Totas as contas

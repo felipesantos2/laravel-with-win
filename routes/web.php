@@ -15,7 +15,7 @@ use \IlLuminate\Http\Request;
 |
 */
 
-Route::view('/', 'index');
+Route::view('/', 'index')->name('root');
 
 Route::view('/welcome', 'welcome');
 
