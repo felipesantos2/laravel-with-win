@@ -12,7 +12,7 @@
 
     @foreach ($rows as $row)
         <div>
-            <div class="p-4 border border-yellow-400 m-4">
+            <div class="p-6 border border-yellow-400 m-4">
 
                 <ul>
                     <li>

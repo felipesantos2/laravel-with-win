@@ -12,16 +12,16 @@
 
     <ul class="uppercase">
         @foreach ($row as $collumn)
-            <li class="border-b border-yellow-400 p-1">
+            <li class="border-b border-yellow-400 p-2">
                 {{ $collumn->id }}
             </li>
-            <li class="border-b border-yellow-400 p-1">
+            <li class="border-b border-yellow-400 p-2">
                 {{ $collumn->conta }}
             </li>
-            <li class="border-b border-yellow-400 p-1">
+            <li class="border-b border-yellow-400 p-2">
                 {{ $collumn->valor }}
             </li>
-            <li class="border-b border-yellow-400 p-1">
+            <li class="border-b border-yellow-400 p-2">
                 {{ $collumn->estabelecimento }}
             </li>
         @endforeach
