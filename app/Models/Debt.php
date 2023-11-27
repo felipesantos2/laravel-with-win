@@ -18,6 +18,7 @@ class Debt extends Model
         'valor',
         'dat_compra',
         'estabelecimento',
+        'created_at',
     ];
 
 }

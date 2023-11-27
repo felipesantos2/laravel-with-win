@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use App\Models\Debt;
+use DateTime;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 
@@ -38,12 +39,45 @@ class DebtController extends Controller
         // save item and redirect
         return to_route('contas.pages.index');
     }
+
     //----------------------------------------------------
     //----------------------------------------------------
-    public function store()
+    public function store(Request $request)
     {
         // save item and redirect
-        return to_route('contas.index');
+        if (
+            empty($request->conta) ||
+            empty($request->valor) ||
+            empty($request->estabelecimento)
+        ) {
+            return to_route('contas.edit', [
+                'message' => 'Preencha todos os campos por favor!',
+            ]);
+        }
+
+        // insert
+        DB::table('contas')->updateOrInsert(
+            [
+                'conta' => trim($request->conta),
+                'estabelecimento' => trim($request->estabelecimento),
+                'valor' => trim($request->valor),
+                'data_compra' => trim($request->data_compra),
+                'data_vencimento' => trim($request->data_vencimento),
+            ],
+            [
+                'conta' => trim($request->conta),
+                'estabelecimento' => trim($request->estabelecimento),
+                'valor' => trim($request->valor),
+                'data_compra' => trim($request->data_compra),
+                'data_vencimento' => trim($request->data_vencimento),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+        );
+
+        return to_route('contas.create', [
+            'message' => urlencode('Cadastrado com sucesso!'),
+        ]);
     }
 
     //----------------------------------------------------

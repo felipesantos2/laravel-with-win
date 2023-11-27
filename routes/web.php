@@ -19,11 +19,15 @@ Route::view('/', 'index');
 
 Route::view('/welcome', 'welcome');
 
+Route::view('/snippets', 'snippets');
+
 Route::prefix('contas')->group(function () {
 
     Route::get('/all', [DebtController::class, 'index'])->name('contas.index');
 
     Route::view('/create','pages.contas.create')->name('contas.create');
+
+    Route::post('/store', [DebtController::class, 'store'])->name('contas.store');
 
     Route::get('/show/{id?}', [DebtController::class, 'show'])->name('contas.show');
 
