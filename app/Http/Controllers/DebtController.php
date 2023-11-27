@@ -50,7 +50,7 @@ class DebtController extends Controller
             empty($request->valor) ||
             empty($request->estabelecimento)
         ) {
-            return to_route('contas.edit', [
+            return to_route('contas.create', [
                 'message' => 'Preencha todos os campos por favor!',
             ]);
         }
