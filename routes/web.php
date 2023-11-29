@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\DebtController;
+use \App\Http\Controllers\HomeController;
 use \IlLuminate\Http\Request;
 
 /*
@@ -15,26 +16,6 @@ use \IlLuminate\Http\Request;
 |
 */
 
-Route::view('/', 'index')->name('root');
-
-Route::view('/welcome', 'welcome');
-
-Route::view('/snippets', 'snippets');
-
-Route::prefix('contas')->group(function () {
-
-    Route::get('/all', [DebtController::class, 'index'])->name('contas.index');
-
-    Route::view('/create','pages.contas.create')->name('contas.create');
-
-    Route::post('/store', [DebtController::class, 'store'])->name('contas.store');
-
-    Route::get('/show/{id?}', [DebtController::class, 'show'])->name('contas.show');
-
-    Route::get('/edit/{id?}', [DebtController::class, 'edit'])->name('contas.edit');
-
-    Route::post('/update', [DebtController::class, 'update'])->name('contas.update');
-
-});
 
 
+Route::get('/', [HomeController::class, 'index'])->name('home');
