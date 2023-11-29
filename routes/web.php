@@ -1,9 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use \App\Http\Controllers\DebtController;
 use \App\Http\Controllers\HomeController;
-use \IlLuminate\Http\Request;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +18,10 @@ use \IlLuminate\Http\Request;
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/users', [UserController::class, 'index'])->name('users.index');
+Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
+Route::post('/users', [UserController::class, 'store'])->name('users.store');
+Route::get('/users/{user?}', [UserController::class, 'show'])->name('users.store');
+Route::post('/users/{user?}/edit', [UserController::class, 'edit'])->name('users.edit');
+Route::put('/users/{user?}/edit', [UserController::class, 'update'])->name('users.update');
+Route::delete('/users/{user?}', [UserController::class, 'destroy'])->name('users.destroy');

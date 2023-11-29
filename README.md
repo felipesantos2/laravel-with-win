@@ -62,6 +62,6 @@ TALL STACK =>
 ```txt
     criando model, migration e controller com único comando
     php artisan make:model debts -c -m
+    php artisan make:controller UserController --resource
 
 ```
-
