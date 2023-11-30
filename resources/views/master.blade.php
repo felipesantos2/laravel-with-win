@@ -16,7 +16,7 @@
     <body>
 
         <div class="pages max-w-fullw-full">
-            <div>
+            <div class="max-w-full w-3/4 mx-auto">
                 @yield('content')
             </div>
         </div>

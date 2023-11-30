@@ -7,5 +7,15 @@
 </div>
 
 
+<ul>
+    @foreach ($users as $user)
+        <li>
+            {{ $user->name }} |
+            <a  class="underline text-yellow-500" href="{{ route('users.edit', ['user' => $user->id]) }}">Edit</a> |
+            <a  class="underline text-yellow-500" href="{{ route('users.edit', ['user' => $user->id]) }}">Delete</a>
+        </li>
+    @endforeach
+</ul>
+
 
 @endsection
