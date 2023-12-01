@@ -47,9 +47,14 @@ class UserController extends Controller
         $request->input('password');
 
 
-        print_r($method = $request->method());
+        // print_r($method = $request->method());
 
         if( !empty($request->method() == 'POST') ) {
+
+            $this->user->name = $request->input('name');
+            $this->user->email = $request->input('email');
+            $this->user->password = $request->input('password');
+
             return redirect()->back()->with('success', 'Cadastrado com sucesso!');
         }
 
