@@ -7,6 +7,10 @@
 </div>
 
 
+@component('')
+
+@endcomponent
+
 {{-- https://youtu.be/rqtZ0EmciJ8?si=sf-Ovbv9o9J78LgZ video aula --}}
 
 @endsection
