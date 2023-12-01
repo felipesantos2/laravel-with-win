@@ -33,7 +33,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('user_create');
     }
 
     /**
@@ -41,7 +41,19 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->input('name');
+        $request->input('email');
+        $request->input('password');
+
+
+        print_r($method = $request->method());
+
+        if( !empty($request->method() == 'POST') ) {
+            return redirect()->back()->with('success', 'Cadastrado com sucesso!');
+        }
+
+        return redirect()->back()->with('error', 'Error. Adicione suas informações, por favor!');
     }
 
     /**
