@@ -10,9 +10,17 @@
         <a href="{{ route('users.create') }}" class="border-b-2 border-yellow-300 p-1 m-2"> Create </a>
    </div>
 
+
+
     <if-session />
 
     <x-separator />
+
+    <x-alert.danger-alert />
+
+    <x-alert.warning-alert />
+
+    <x-alert.success-alert />
 
     <ul class="my-2">
         @foreach ($users as $user)

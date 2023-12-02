@@ -15,6 +15,12 @@
 <br>
 <x-separator />
 
+<x-alert.danger-alert />
+
+<x-alert.warning-alert />
+
+<x-alert.success-alert />
+
 
 
 
