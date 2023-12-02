@@ -7,9 +7,15 @@
 </div>
 
 
-@component('')
+<a href="{{ route('users.create')}}" class="border-b-2 border-yellow-300 p-1"> Create </a>
+<a href="{{ route('users.index')}}" class="border-b-2 border-yellow-300 p-1"> Todos </a>
 
-@endcomponent
+<br>
+<br>
+<br>
+<x-separator />
+
+
 
 {{-- https://youtu.be/rqtZ0EmciJ8?si=sf-Ovbv9o9J78LgZ video aula --}}
 

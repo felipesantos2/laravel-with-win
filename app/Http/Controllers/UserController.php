@@ -42,19 +42,14 @@ class UserController extends Controller
     public function store(Request $request)
     {
 
-        $request->input('name');
-        $request->input('email');
-        $request->input('password');
+        $created = $this->user->create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => password_hash($request->input('password'), PASSWORD_DEFAULT),
+        ]);
 
 
-        // print_r($method = $request->method());
-
-        if( !empty($request->method() == 'POST') ) {
-
-            $this->user->name = $request->input('name');
-            $this->user->email = $request->input('email');
-            $this->user->password = $request->input('password');
-
+        if ($created) {
             return redirect()->back()->with('success', 'Cadastrado com sucesso!');
         }
 
@@ -64,9 +59,11 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(User $user)
     {
-        //
+        return view('user_show', [
+            'user' => $user,
+        ]);
     }
 
     /**
@@ -87,14 +84,13 @@ class UserController extends Controller
     public function update(Request $request, string $id)
     {
         $updated = $this->user->where('id', $id)
-                        ->update($request->except(['_token', '_method']));
+            ->update($request->except(['_token', '_method']));
 
         if ($updated) {
             return redirect()->back()->with('success', 'Sucesso!');
         }
 
-        return redirect()->back()->with('error', 'Sucesso!');
-
+        return redirect()->back()->with('error', 'Successo na atualização!');
     }
 
     /**
@@ -102,6 +98,8 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $this->user->where('id', $id)->delete();
+
+        return redirect()->route('users.index')->with('success', 'Sucesso na exclusão!');
     }
 }
