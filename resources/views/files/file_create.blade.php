@@ -12,7 +12,7 @@
 
     <x-separator />
 
-    <form action="{{ route('upload.store') }}" method="post">
+    <form action="{{ route('upload.store') }}" method="post" enctype="multipart/form-data">
         @csrf
         <input class="border-2 p-2 m-2 rounded-md" type="file" name="image" id="image">
         <button class="p-3 rounded-lg bg-yellow-500" type="submit">
