@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+use Ramsey\Uuid\Uuid;
 
 use function Laravel\Prompts\table;
 use function Livewire\store;
@@ -32,10 +34,13 @@ class UploadController extends Controller
     public function store(Request $request)
     {
         // dd($request->image);
+        
+        $year = date('Y'); $month = date('m');
+
+        $extension = $request->file('image')->getClientOriginalExtension();
 
         if($request->image) {
-            $year = date('Y'); $month = date('m');
-            $path = $request->file('image')->store( 'uploads/'. $year . '/' . $month);
+            $path = $request->file('image')->storeAs( 'uploads/'. $year . '/' . $month, Str::uuid() . ".{$extension}");
         }
 
         $affected = DB::insert('insert into images (id, image, created_at, updated_at) values (?, ?, ?, ?)', [null, $path, now(), now()]);
