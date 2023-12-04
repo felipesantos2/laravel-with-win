@@ -42,9 +42,22 @@ Route::controller(AccountController::class)->group(function () {
 });
 
 ```
+
+```
+
+Seeder com atrualização de todas as migrações
+
+php artisan migrate:refresh --seed
+
+Cria todos os métodos default de om controller
+
+php artisan make:controller NameController --resource
+
+```
 <!--
     A pasta build não é versionada juntamente com a pasta vendor do composer.
     Acredito que tenho que rotar o build direto no servidor e instalar as dependências do composer novamente .
     ** npm run build **
     ** composer install **
  -->
+ 
