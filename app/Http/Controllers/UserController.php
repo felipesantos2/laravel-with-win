@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-
     public readonly User $user;
 
     public function __construct()
@@ -41,19 +40,17 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-
         $created = $this->user->create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'password' => password_hash($request->input('password'), PASSWORD_DEFAULT),
         ]);
 
-
         if ($created) {
-            return redirect()->back()->with('success', 'Cadastrado com sucesso!');
+            return redirect()->route('users.index')->with('success', 'Cadastrado com sucesso!');
         }
 
-        return redirect()->back()->with('error', 'Error. Adicione suas informações, por favor!');
+        return redirect()->route('users.index')->with('error', 'Error. Adicione suas informações, por favor!');
     }
 
     /**
@@ -74,7 +71,7 @@ class UserController extends Controller
         // echo "<pre>";
         // var_dump($user);
         return view('user_edit', [
-            'user' => $user
+            'user' => $user,
         ]);
     }
 
